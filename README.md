@@ -5,7 +5,7 @@ Python scripts used to produce the figures in the article
 ## Repository layout
 
 ```
-data/      input CSV tables (see "Data" below)
+data/      input CSV tables - not included, see "Data" below
 figures/   generated PNG/TIFF figures (created automatically)
 scripts/   one script per figure; scripts/common.py holds shared path handling
 ```
@@ -20,7 +20,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-Put the input CSVs in `data/`, then run any script from anywhere:
+Download and prepare the data (see [Data](#data)), put the CSVs in `data/`,
+then run any script from anywhere:
 
 ```bash
 python scripts/ISpeciesPerYearChart.py
@@ -64,8 +65,14 @@ data on first run (internet connection required once).
 
 ## Data
 
-DOI (https://doi.org/10.15468/dl.68eusb)
-Data parsing and organisation: http://github.com/ianengelbrecht/parseGBIF
+The input data is **not included** in this repository. To reproduce the figures:
+
+1. Download the GBIF occurrence dataset: https://doi.org/10.15468/dl.68eusb
+2. Parse and organise the records with parseGBIF: https://github.com/ianengelbrecht/parseGBIF
+3. Save the resulting tables in `data/` using the file names in the table above
+   (or point a script at a file elsewhere with `--input`).
+
+Anything placed in `data/` is ignored by git, so the CSVs won't be committed by accident.
 
 ## Citation
 
